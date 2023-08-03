@@ -1,39 +1,19 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Cookie from "./pages/cookie";
-import LocalStorage from "./pages/localStorage";
-import SessionStorage from "./pages/sessionStorage";
-import IndexedDB from "./pages/indexedDB";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import CookiePage from "./pages/CookiePage";
+import LocalStoragePage from "./pages/LocalStoragePage";
+import SessionStoragePage from "./pages/SessionStoragePage";
+import IndexedDBPage from "./pages/IndexedDBPage";
 
 function App() {
   return (
-    <>
-      <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/cookie">cookie</Link>
-              </li>
-              <li>
-                <Link to="/localStorage">localStorage</Link>
-              </li>
-              <li>
-                <Link to="/sessionStorage">sessionStorage</Link>
-              </li>
-              <li>
-                <Link to="/indexedDB">indexedDB</Link>
-              </li>
-            </ul>
-          </nav>
-
-          <Route path="/cookie" element={<Cookie />} />
-          <Route path="/localStorage" element={<LocalStorage />} />
-          <Route path="/sessionStorage" element={<SessionStorage />} />
-          <Route path="/indexedDB" element={<IndexedDB />} />
-        </div>
-      </Router>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/cookie" element={<CookiePage />} />
+        <Route path="/localStorage" element={<LocalStoragePage />} />
+        <Route path="/sessionStorage" element={<SessionStoragePage />} />
+        <Route path="/indexedDB" element={<IndexedDBPage />} />
+      </Routes>
+    </Router>
   );
 }
 
